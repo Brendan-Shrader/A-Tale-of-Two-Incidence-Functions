@@ -3,7 +3,10 @@ import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 from scipy.optimize import root
 
-plt.rcParams.update({'font.size': 12})
+FONT_SIZE = 16
+LEGEND_FONT_SIZE = 14
+
+plt.rcParams.update({'font.size': FONT_SIZE})
 plt.rcParams['font.family'] = 'Times New Roman'
 plt.rcParams['mathtext.fontset'] = 'dejavuserif'
 
@@ -94,7 +97,7 @@ ax.plot(beta_values[1:], R_epsilon_curve_beta(beta_values[1:], pars), color='red
 ax.plot([beta_at_R0_equals_1, beta_at_R0_equals_1], [0, 1], color='blue', label=r'$R_0 = 1$')
 
 ax.set_xlabel(r'$\mathcal{R}_0$', rotation=0, labelpad=5)
-ax.set_ylabel(r'$\epsilon$', rotation=0, labelpad=10)
+ax.set_ylabel(r'$\epsilon$', rotation=0, labelpad=15)
 ax.set_xlim([0, beta_max])
 ax.set_ylim([0, 1])
 
@@ -103,20 +106,20 @@ xtick_labels = np.linspace(0, R0_max, num_xticks)
 ax.set_xticks(np.linspace(0, beta_max, num_xticks))
 ax.set_xticklabels(f"{xtick:.0f}" for xtick in xtick_labels)
 
-ax.set_title(r'$\alpha_s = %.4f$' % pars['alpha_s'], fontsize=12)
+ax.set_title(r'$\alpha_s = %.4f$' % pars['alpha_s'], fontsize=FONT_SIZE)
 
 cbar = fig.colorbar(cf, label=r'$I^*$')
 cbar_ticks = np.arange(0, 1.1, 0.2)
 cbar.set_ticks(cbar_ticks)
 cbar.set_ticklabels([f'{tick:.1f}' for tick in cbar_ticks])
-cbar.set_label(r'$\frac{I^*}{N^*}$', rotation=0, labelpad=15, fontsize=14)
+cbar.set_label(r'$\frac{I^*}{N^*}$', rotation=0, labelpad=20)
 
-ax.legend(framealpha=1, fancybox=False, edgecolor='black', loc='lower right')
+ax.legend(framealpha=1, fancybox=False, edgecolor='black', loc='lower right', fontsize=LEGEND_FONT_SIZE)
 
 filename = f'ma_beta-epsilon_bifurcation_diagram_alpha_s={pars["alpha_s"]:.4f}.png'
 fig.savefig(filename, dpi=300, bbox_inches='tight')
 
-
+    
 
 '''
 β-ε bifurcation diagram with α_s = 0
@@ -139,7 +142,7 @@ ax.plot(beta_values[1:], R_epsilon_curve_beta(beta_values[1:], pars), color='red
 ax.plot([beta_at_R0_equals_1, beta_at_R0_equals_1], [0, 1], color='blue', label=r'$R_0 = 1$')
 
 ax.set_xlabel(r'$\mathcal{R}_0$', rotation=0, labelpad=5)
-ax.set_ylabel(r'$\epsilon$', rotation=0, labelpad=10)
+ax.set_ylabel(r'$\epsilon$', rotation=0, labelpad=15)
 ax.set_xlim([0, beta_max])
 ax.set_ylim([0, 1])
 
@@ -148,15 +151,15 @@ xtick_labels = np.linspace(0, R0_max, num_xticks)
 ax.set_xticks(np.linspace(0, beta_max, num_xticks))
 ax.set_xticklabels(f"{xtick:.0f}" for xtick in xtick_labels)
 
-ax.set_title(r'$\alpha_s = %.4f$' % pars['alpha_s'], fontsize=12)
+ax.set_title(r'$\alpha_s = %.4f$' % pars['alpha_s'], fontsize=FONT_SIZE)
 
 cbar = fig.colorbar(cf, label=r'$I^*$')
 cbar_ticks = np.arange(0, 1.1, 0.2)
 cbar.set_ticks(cbar_ticks)
 cbar.set_ticklabels([f'{tick:.1f}' for tick in cbar_ticks])
-cbar.set_label(r'$\frac{I^*}{N^*}$', rotation=0, labelpad=15, fontsize=14)
+cbar.set_label(r'$\frac{I^*}{N^*}$', rotation=0, labelpad=20)
 
-ax.legend(framealpha=1, fancybox=False, edgecolor='black', loc='upper right')
+ax.legend(framealpha=1, fancybox=False, edgecolor='black', loc='upper right', fontsize=LEGEND_FONT_SIZE)
 
 filename = f'ma_beta-epsilon_bifurcation_diagram_alpha_s={pars["alpha_s"]:.4f}.png'
 fig.savefig(filename, dpi=300, bbox_inches='tight')
@@ -185,7 +188,7 @@ cf = ax.contourf(X, Y, Z, levels=cf_levels, cmap='magma')
 ax.plot([beta_at_R0_equals_1, beta_at_R0_equals_1], [0, 1], color='blue', label=r'$R_0 = 1$')
 
 ax.set_xlabel(r'$\mathcal{R}_0$', rotation=0, labelpad=5)
-ax.set_ylabel(r'$\epsilon$', rotation=0, labelpad=10)
+ax.set_ylabel(r'$\epsilon$', rotation=0, labelpad=15)
 ax.set_xlim([0, beta_max])
 ax.set_ylim([0, 1])
 
@@ -194,15 +197,15 @@ xtick_labels = np.linspace(0, R0_max, num_xticks)
 ax.set_xticks(np.linspace(0, beta_max, num_xticks))
 ax.set_xticklabels(f"{xtick:.0f}" for xtick in xtick_labels)
 
-ax.set_title("Mass Action Incidence", fontsize=12)
+ax.set_title("Mass Action Incidence", fontsize=FONT_SIZE)
 
 cbar = fig.colorbar(cf, label=r'$I^*$')
 cbar_ticks = np.arange(0, 1.1, 0.2)
 cbar.set_ticks(cbar_ticks)
 cbar.set_ticklabels([f'{tick:.1f}' for tick in cbar_ticks])
-cbar.set_label(r'$\frac{I^*}{N^*}$', rotation=0, labelpad=15, fontsize=14)
+cbar.set_label(r'$\frac{I^*}{N^*}$', rotation=0, labelpad=20)
 
-ax.legend(framealpha=1, fancybox=False, edgecolor='black', loc='upper right')
+ax.legend(framealpha=1, fancybox=False, edgecolor='black', loc='upper right', fontsize=LEGEND_FONT_SIZE)
 
 filename = f'ma_beta-epsilon_bifurcation_diagram_alpha_s={pars["alpha_s"]:.4f}_no_R_epsilon.png'
 fig.savefig(filename, dpi=300, bbox_inches='tight')

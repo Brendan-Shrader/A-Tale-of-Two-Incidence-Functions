@@ -79,8 +79,8 @@ beta_at_R0_equals_1 = pars['gamma'] + pars['b'] + pars['alpha_i']
 
 #cf_levels = np.linspace(0, 1, 100)
 cf_levels = np.linspace(0, 1, 100)
-cf = ax.contourf(X, Y, Z, levels=cf_levels, cmap='magma')
-ax.plot([beta_at_R0_equals_1, beta_at_R0_equals_1], [0, 1], color='blue', label=r'$R_0 = 1$')
+cf = ax.contourf(X, Y, Z, levels=cf_levels, cmap='magma', zorder=-1)
+ax.plot([beta_at_R0_equals_1, beta_at_R0_equals_1], [0, 1], color='blue', label=r'$\mathcal{R}_0 = 1$')
 
 ax.set_xlabel(r'$\mathcal{R}_0$', rotation=0, labelpad=5)
 ax.set_ylabel(r'$\epsilon$', rotation=0, labelpad=15)
@@ -102,5 +102,7 @@ cbar.set_label(r'$i^*$', rotation=0, labelpad=20)
 
 ax.legend(framealpha=1, fancybox=False, edgecolor='black', loc='upper right', fontsize=LEGEND_FONT_SIZE)
 
-filename = f'std_beta-epsilon_bifurcation_diagram_alpha_s={pars["alpha_s"]:.4f}_no_R_epsilon.png'
+ax.set_rasterization_zorder(0)
+
+filename = f'std_beta-epsilon_bifurcation_diagram_alpha_s={pars["alpha_s"]:.4f}_no_R_epsilon.pdf'
 fig.savefig(filename, dpi=300, bbox_inches='tight')

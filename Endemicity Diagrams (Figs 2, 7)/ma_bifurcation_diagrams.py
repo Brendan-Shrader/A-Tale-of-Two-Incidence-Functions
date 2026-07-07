@@ -201,7 +201,7 @@ xtick_labels = np.linspace(0, R0_max, num_xticks)
 ax.set_xticks(np.linspace(0, beta_max, num_xticks))
 ax.set_xticklabels(f"{xtick:.0f}" for xtick in xtick_labels)
 
-ax.set_title("Mass Action Incidence", fontsize=FONT_SIZE)
+ax.set_title("Mass-Action Incidence", fontsize=FONT_SIZE)
 
 cbar = fig.colorbar(cf, label=r'$I^*$')
 cbar_ticks = np.arange(0, 1.1, 0.2)
@@ -213,5 +213,5 @@ ax.legend(framealpha=1, fancybox=False, edgecolor='black', loc='upper right', fo
 
 ax.set_rasterization_zorder(0)
 
-filename = f'ma_beta-epsilon_bifurcation_diagramAlpha_s={pars["alpha_s"]:.4f}_no_R_epsilon.pdf'
+filename = f'ma_beta-epsilon_bifurcation_diagram_alpha_s={pars["alpha_s"]:.4f}_no_R_epsilon.pdf'
 fig.savefig(filename, dpi=300, bbox_inches='tight')

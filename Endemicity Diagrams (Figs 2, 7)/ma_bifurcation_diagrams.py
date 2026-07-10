@@ -90,7 +90,6 @@ Z = I_star_matrix / N_star_matrix
 
 beta_at_R0_equals_1 = pars['mu'] / pars['Lambda'] * (pars['gamma'] + pars['mu'] + pars['alpha_i'])
 
-#cf_levels = np.linspace(0, 1, 100)
 cf_levels = np.linspace(0, 1, 100)
 cf = ax.contourf(X, Y, Z, levels=cf_levels, cmap='magma', zorder=-1)
 ax.plot(beta_values[1:], R_epsilon_curve_beta(beta_values[1:], pars), color='red', label=r'$\mathcal{R}_\epsilon = 1$')

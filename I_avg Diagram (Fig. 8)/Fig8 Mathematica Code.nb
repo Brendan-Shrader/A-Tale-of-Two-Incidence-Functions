@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    273803,       5471]
-NotebookOptionsPosition[    272970,       5449]
-NotebookOutlinePosition[    273372,       5465]
-CellTagsIndexPosition[    273329,       5462]
+NotebookDataLength[    273913,       5478]
+NotebookOptionsPosition[    273082,       5456]
+NotebookOutlinePosition[    273482,       5472]
+CellTagsIndexPosition[    273439,       5469]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,19 +22,19 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], "\n", 
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
   "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
    "Parameters", " ", "that", " ", "do", " ", "not", " ", "change", " ", 
-    "across", " ", "runs"}], "*)"}]}], "\[IndentingNewLine]", 
+    "across", " ", "runs"}], "*)"}]}], "\n", 
  RowBox[{
   RowBox[{"\[CapitalLambda]", "=", "0.0004"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"\[Mu]", "=", "0.0004"}], ";"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{"\[Gamma]", "=", "1"}], ";"}], "\n"}], "\[IndentingNewLine]", 
+   RowBox[{"\[Gamma]", "=", "1"}], ";"}], "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{"\[Alpha]I", "=", "0"}], ";"}], "\n", 
  RowBox[{
@@ -70,7 +70,7 @@ Cell[BoxData[{
      "2.3", ",", "2.35", ",", "2.4", ",", "2.45", ",", "2.5", ",", "2.55", ",",
        "2.6", ",", "2.65", ",", "2.7", ",", "2.75", ",", "2.8", ",", "2.85", ",",
        "2.9", ",", "2.95", ",", "3.", ",", "3.1", ",", "3.2"}], "}"}]}], 
-   ";"}], "\[IndentingNewLine]", "\n", 
+   ";"}], "\n", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"--", 
     RowBox[{"--", 
@@ -399,13 +399,13 @@ Cell[BoxData[{
          RowBox[{"\"\<tImax\>\"", "->", "tIMax"}], ",", 
          RowBox[{"\"\<PlotSIR\>\"", "->", "plotSIR"}], ",", 
          RowBox[{"\"\<PlotFFT\>\"", "->", "plotFFT"}]}], "|>"}]}]}], "]"}]}], 
-   ";"}], "\n", "\[IndentingNewLine]", 
+   ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{"(*", 
-   RowBox[{"Run", " ", "for", " ", "all", " ", "betas"}], "*)"}]}], "\[IndentingNewLine]", 
+   RowBox[{"Run", " ", "for", " ", "all", " ", "betas"}], "*)"}]}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"results", "=", 
-    RowBox[{"runForBeta", "/@", "betaList"}]}], ";"}], "\n", 
+    RowBox[{"runForBeta", "/@", "betaList"}]}], ";"}], "\[IndentingNewLine]", 
   "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"--", 
@@ -438,7 +438,7 @@ Cell[BoxData[{
                     RowBox[{"--", 
                     RowBox[{
                     "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
-}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+}]}]}]}]}], "*)"}], "\n", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{
@@ -447,7 +447,7 @@ Cell[BoxData[{
        RowBox[{
         RowBox[{"Display", ":", "1"}], ")"}], " ", "plots", " ", "for", " ", 
        "each", " ", "\[Beta]"}], ",", "2"}], ")"}], " ", "a", " ", "compact", 
-    " ", "summary", " ", "table"}], "*)"}], "\n", 
+    " ", "summary", " ", "table"}], "*)"}], "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"--", 
     RowBox[{"--", 
@@ -484,7 +484,7 @@ Cell[BoxData[{
    RowBox[{
     RowBox[{
     "Print", "[", "\"\<\\n=== Time-Series & FFT Plots by \[Beta] ===\\n\>\"", 
-     "]"}], ";"}], "*)"}]}], "\[IndentingNewLine]", 
+     "]"}], ";"}], "*)"}]}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"Column", "[", 
@@ -505,14 +505,13 @@ Cell[BoxData[{
        RowBox[{"{", 
         RowBox[{"k", ",", 
          RowBox[{"Length", "[", "results", "]"}]}], "}"}]}], "]"}], ",", 
-     RowBox[{"Spacings", "->", "2"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
-  "\n", 
+     RowBox[{"Spacings", "->", "2"}]}], "]"}], ";"}], "\n", 
+  "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"Print", "[", 
      RowBox[{"\"\<\\n=== Summary (late-time, t \[GreaterEqual] \>\"", ",", 
-      "tStart", ",", "\"\<) ===\\n\>\""}], "]"}], ";"}], "*)"}], 
-  "\[IndentingNewLine]"}], "\n", 
+      "tStart", ",", "\"\<) ===\\n\>\""}], "]"}], ";"}], "*)"}], "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"summaryRows", "=", 
@@ -580,7 +579,7 @@ Cell[BoxData[{
        RowBox[{"\"\<\[Beta]\>\"", ",", "\"\<Peak freq\>\"", 
         ",", "\"\<Est. period\>\"", ",", "\"\<I min\>\"", ",", "\"\<I max\>\"",
          ",", "\"\<t at I min\>\"", ",", "\"\<t at I max\>\""}], "}"}]}], 
-     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
+     "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"Grid", "[", 
@@ -588,8 +587,8 @@ Cell[BoxData[{
      RowBox[{"Frame", "->", "All"}], ",", 
      RowBox[{"Spacings", "->", 
       RowBox[{"{", 
-       RowBox[{"2", ",", "1"}], "}"}]}]}], "]"}], ";"}], 
-  "\[IndentingNewLine]", "\n", 
+       RowBox[{"2", ",", "1"}], "}"}]}]}], "]"}], ";"}], "\n", 
+  "\[IndentingNewLine]", 
   RowBox[{"(*", " ", 
    RowBox[{"===", 
     RowBox[{"Infection", "-", 
@@ -640,12 +639,13 @@ Cell[BoxData[{
       RowBox[{"{", 
        RowBox[{"k", ",", 
         RowBox[{"Length", "[", "results", "]"}]}], "}"}]}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\n", 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"Column", "[", 
     RowBox[{"infectionPlots", ",", 
-     RowBox[{"Spacings", "->", "1.25"}]}], "]"}], ";"}], "\n"}], "\[IndentingNewLine]", 
+     RowBox[{"Spacings", "->", "1.25"}]}], "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{"(*", " ", 
    RowBox[{"===", 
@@ -686,7 +686,7 @@ Cell[BoxData[{
             RowBox[{"Missing", "[", "\"\<IntegrationFailed\>\"", "]"}]}], 
            "]"}]}]}], ",", 
         RowBox[{"Missing", "[", "\"\<NoPeriod\>\"", "]"}]}], "]"}]}], "]"}]}],
-    ";"}], "\n", "\[IndentingNewLine]", 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"--", 
@@ -697,7 +697,7 @@ Cell[BoxData[{
       "uses", " ", "`results`", " ", "if", " ", "it", " ", "exists", " ", 
        "and", " ", "is", " ", "a", " ", "nonempty", " ", 
        RowBox[{
-        RowBox[{"list", "--"}], "--"}]}]}]}]}], "*)"}]}], "\[IndentingNewLine]", 
+        RowBox[{"list", "--"}], "--"}]}]}]}]}], "*)"}]}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"If", "[", 
@@ -775,7 +775,7 @@ Cell[BoxData[{
          RowBox[{"Spacings", "->", 
           RowBox[{"{", 
            RowBox[{"2", ",", "1"}], "}"}]}]}], "]"}]}], ";"}], "*)"}], 
-    "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", "\n", 
+    "\[IndentingNewLine]", "]"}], ";"}], "\n", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"--", 
@@ -840,7 +840,7 @@ Cell[BoxData[{
        RowBox[{"bet", "*", 
         RowBox[{"(", 
          RowBox[{"\[CapitalLambda]", "/", "\[Mu]"}], ")"}]}], ")"}], "/", 
-      "Apar"}], "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+      "Apar"}], "]"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"Table", "[", 
@@ -858,7 +858,7 @@ Cell[BoxData[{
      RowBox[{"{", 
       RowBox[{"k", ",", 
        RowBox[{"Length", "[", "results", "]"}]}], "}"}]}], "]"}], ";"}], 
-  "\n"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{
@@ -956,7 +956,7 @@ Cell[BoxData[{
       RowBox[{"{", 
        RowBox[{"k", ",", 
         RowBox[{"Length", "[", "results", "]"}]}], "}"}]}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\n", 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"dataAvgR0", "=", 
@@ -968,7 +968,7 @@ Cell[BoxData[{
          RowBox[{"NumericQ", "[", 
           RowBox[{"#", "[", 
            RowBox[{"[", "2", "]"}], "]"}], "]"}], "&"}]}], "]"}], ",", 
-      "First"}], "]"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
+      "First"}], "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"avgCurveR0", "=", 
@@ -990,7 +990,7 @@ Cell[BoxData[{
           RowBox[{"\"\<I\>\"", ",", "Italic", ",", 
            RowBox[{"FontFamily", "->", "\"\<Times New Roman\>\""}], ",", 
            RowBox[{"FontSize", "->", "14"}]}], "]"}]}], "}"}]}]}], "]"}]}], 
-   ";"}], "\[IndentingNewLine]", "\n", 
+   ";"}], "\n", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"I", " ", 
     RowBox[{"Min", "/", "Max"}], " ", "vs", " ", "R0"}], "*)"}]}], "\[IndentingNewLine]", 
@@ -1027,7 +1027,7 @@ Cell[BoxData[{
       RowBox[{"{", 
        RowBox[{"k", ",", 
         RowBox[{"Length", "[", "results", "]"}]}], "}"}]}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\n", 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"vLinesR0", "=", 
@@ -1066,7 +1066,7 @@ Cell[BoxData[{
       RowBox[{"{", 
        RowBox[{"k", ",", 
         RowBox[{"Length", "[", "results", "]"}]}], "}"}]}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\n", 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"overlayR0", "=", 
@@ -1080,11 +1080,11 @@ Cell[BoxData[{
        RowBox[{"Darker", "[", "Green", "]"}], ",", 
        RowBox[{"PointSize", "[", ".014", "]"}], ",", 
        RowBox[{"Point", "[", "dataMaxR0", "]"}]}], "}"}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\n", 
   RowBox[{"(*", 
    RowBox[{
     SuperscriptBox["I", 
-     RowBox[{"*", " "}]], "vs", " ", "R0"}], "*)"}]}], "\n", 
+     RowBox[{"*", " "}]], "vs", " ", "R0"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"dataIstarR0", "=", 
@@ -1112,7 +1112,7 @@ Cell[BoxData[{
          RowBox[{"NumericQ", "[", 
           RowBox[{"#", "[", 
            RowBox[{"[", "2", "]"}], "]"}], "]"}], "&"}]}], "]"}], ",", 
-      "First"}], "]"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
+      "First"}], "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"plotIstarR0", "=", 
@@ -1128,7 +1128,7 @@ Cell[BoxData[{
         RowBox[{"\"\<R0\>\"", 
          ",", "\"\<\!\(\*SuperscriptBox[\(I\), \(*\)]\)\>\""}], "}"}]}], ",", 
       RowBox[{"PlotLabel", "->", "\"\<Endemic I* vs R0\>\""}]}], "]"}]}], 
-   ";"}], "\[IndentingNewLine]"}], "\n", 
+   ";"}], "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"legend", "=", 
@@ -1252,7 +1252,7 @@ Italic\"], \"*\"]\)\>\"", ",",
    3.992544417995165*^9}, {3.992680645865053*^9, 3.9926806472808857`*^9}, {
    3.992680717560852*^9, 3.992680717801008*^9}, 3.9926821525989437`*^9, {
    3.9926832128190403`*^9, 3.992683222880007*^9}},
- CellLabel->"In[1]:=",ExpressionUUID->"ee0594df-3d40-4989-8e30-06b35caabf9d"],
+ CellLabel->"In[65]:=",ExpressionUUID->"ee0594df-3d40-4989-8e30-06b35caabf9d"],
 
 Cell[BoxData[
  TagBox[
@@ -3200,12 +3200,16 @@ fxWTbq4=
   Editable->True,
   SelectWithContents->False,
   Selectable->True]], "Output",
- CellChangeTimes->{3.992683850646282*^9, 3.993630980148802*^9},
- CellLabel->"Out[39]=",ExpressionUUID->"b127dea6-f26a-6242-9ad1-e4c3b30ba96b"],
+ CellChangeTimes->{3.992683850646282*^9, 3.993630980148802*^9, 
+  3.9936314278105145`*^9},
+ CellLabel->
+  "Out[103]=",ExpressionUUID->"e8102f23-9df5-f448-a92d-ca1aa8e7dce2"],
 
-Cell[BoxData["53.47`"], "Output",
- CellChangeTimes->{3.992683850646282*^9, 3.993630980168312*^9},
- CellLabel->"Out[40]=",ExpressionUUID->"e028d3b8-9f33-e94c-9716-d627ad8afc75"]
+Cell[BoxData["112.22000000000001`"], "Output",
+ CellChangeTimes->{3.992683850646282*^9, 3.993630980148802*^9, 
+  3.9936314278282833`*^9},
+ CellLabel->
+  "Out[104]=",ExpressionUUID->"d82868d8-da02-2d44-835e-34f83c25885b"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3319,7 +3323,8 @@ Cell[BoxData[
    3.9936308886242485`*^9, 3.9936309093594475`*^9}, {3.9936310645517483`*^9, 
    3.9936310822185345`*^9}, {3.9936311782228622`*^9, 
    3.9936312125729847`*^9}, {3.9936312505212784`*^9, 3.993631252475094*^9}},
- CellLabel->"In[57]:=",ExpressionUUID->"20d69cb2-df65-9647-8a49-c7c64e3b840f"],
+ CellLabel->
+  "In[105]:=",ExpressionUUID->"20d69cb2-df65-9647-8a49-c7c64e3b840f"],
 
 Cell[BoxData[
  TagBox[
@@ -5443,12 +5448,14 @@ fxWTbq4=
   SelectWithContents->False,
   Selectable->True]], "Output",
  CellChangeTimes->{
-  3.993631256215124*^9, {3.993631288731535*^9, 3.9936312978518734`*^9}},
- CellLabel->"Out[60]=",ExpressionUUID->"2dce561d-3901-da4a-b533-050db71abeec"]
+  3.993631256215124*^9, {3.993631288731535*^9, 3.9936313168811913`*^9}, 
+   3.9936314729286366`*^9},
+ CellLabel->
+  "Out[108]=",ExpressionUUID->"7ef720c4-bbb6-9545-9b04-26a506bbbd95"]
 }, Open  ]]
 },
-WindowSize->{1920, 1011.75},
-WindowMargins->{{-6, Automatic}, {Automatic, -6}},
+WindowSize->{1908, 1005.75},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"15.0 for Microsoft Windows (64-bit) (May 19, 2026)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"f73df453-648d-4e98-a68b-6a759271ced4"
@@ -5465,15 +5472,17 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 48318, 1232, 2681, "Input",ExpressionUUID->"ee0594df-3d40-4989-8e30-06b35caabf9d"],
-Cell[48897, 1256, 105854, 1947, 247, "Output",ExpressionUUID->"b127dea6-f26a-6242-9ad1-e4c3b30ba96b"],
-Cell[154754, 3205, 176, 2, 32, "Output",ExpressionUUID->"e028d3b8-9f33-e94c-9716-d627ad8afc75"]
+Cell[576, 22, 48319, 1232, 2655, "Input",ExpressionUUID->"ee0594df-3d40-4989-8e30-06b35caabf9d"],
+Cell[48898, 1256, 105885, 1949, 247, "Output",ExpressionUUID->"e8102f23-9df5-f448-a92d-ca1aa8e7dce2"],
+Cell[154786, 3207, 220, 4, 32, "Output",ExpressionUUID->"d82868d8-da02-2d44-835e-34f83c25885b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[154967, 3212, 4759, 109, 161, "Input",ExpressionUUID->"20d69cb2-df65-9647-8a49-c7c64e3b840f"],
-Cell[159729, 3323, 113225, 2123, 257, "Output",ExpressionUUID->"2dce561d-3901-da4a-b533-050db71abeec"]
+Cell[155043, 3216, 4763, 110, 161, "Input",ExpressionUUID->"20d69cb2-df65-9647-8a49-c7c64e3b840f"],
+Cell[159809, 3328, 113257, 2125, 257, "Output",ExpressionUUID->"7ef720c4-bbb6-9545-9b04-26a506bbbd95"]
 }, Open  ]]
 }
 ]
 *)
+
+(* End of internal cache information *)
 

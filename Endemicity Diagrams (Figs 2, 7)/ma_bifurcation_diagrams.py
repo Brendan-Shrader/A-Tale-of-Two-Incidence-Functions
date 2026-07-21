@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import solve_ivp
 from scipy.optimize import root
 
 FONT_SIZE = 16
@@ -10,6 +9,7 @@ plt.rcParams.update({'font.size': FONT_SIZE})
 plt.rcParams['font.family'] = 'Times New Roman'
 plt.rcParams['mathtext.fontset'] = 'dejavuserif'
 
+# Mass-action SIR model equations
 def SIR_model(t, x, pars):
     Sp, I, Ss = x
     Lambda, mu, beta, gamma, epsilon, alpha_i, alpha_s = pars.values()
@@ -20,18 +20,22 @@ def SIR_model(t, x, pars):
 
     return np.array([dSp_dt, dI_dt, dSs_dt])
 
+# Returns R0
 def get_R0(pars):
     Lambda, mu, beta, gamma, epsilon, alpha_i, alpha_s = pars.values()
     return (Lambda / mu) * (beta / (gamma + mu + alpha_i))
 
+# Returns Rε given β and other parameters
 def R_epsilon_curve_beta(beta, pars):
     Lambda, mu, _, gamma, _, alpha_i, alpha_s = pars.values()
     return (gamma + mu + alpha_i) * ((mu + alpha_s) / Lambda) * (1 / beta)
 
+# Returns Rε given α_s and other parameters
 def R_epsilon_curve_alpha_s(alpha_s, pars):
     Lambda, mu, beta, gamma, _, alpha_i, _ = pars.values()
     return (gamma + mu + alpha_i) * ((mu + alpha_s) / Lambda) * (1 / beta)
 
+# Generate a matrix of I* values for a grid of parameter values
 def generate_I_star_matrix(pars, par1_info, par2_info):
     par1_name, par1_values = par1_info
     par2_name, par2_values = par2_info
@@ -63,6 +67,7 @@ def generate_I_star_matrix(pars, par1_info, par2_info):
 
     return I_star_matrix, N_star_matrix
 
+# Default parameter values
 pars = {
     'Lambda': 0.0004,          # Birth rate
     'mu': 0.0004,              # Death rate
@@ -78,11 +83,17 @@ pars = {
 '''
 β-ε bifurcation diagram with α_s = 0.0008
 '''
+
+# Setup parameter values for the bifurcation diagram
 R0_max = 10
 beta_max = R0_max * pars['mu'] / pars['Lambda'] * (pars['gamma'] + pars['mu'] + pars['alpha_i'])
 beta_values = np.linspace(0, beta_max, 25)
 epsilon_values = np.linspace(0, 1, 25)
+
+# Generate the bifurcation diagram data
 I_star_matrix, N_star_matrix = generate_I_star_matrix(pars, ('beta', beta_values), ('epsilon', epsilon_values))
+
+# Make the bifurcation diagram figure
 fig, ax = plt.subplots(1, 1, figsize=(5, 4), dpi=100)
 
 X, Y = np.meshgrid(beta_values, epsilon_values, indexing='ij')
@@ -125,10 +136,16 @@ fig.savefig(filename, dpi=300, bbox_inches='tight')
 '''
 β-ε bifurcation diagram with α_s = 0
 '''
+
+# Setup parameter values for the bifurcation diagram
 pars['alpha_s'] = 0
 beta_values = np.linspace(0, beta_max, 25)
 epsilon_values = np.linspace(0, 1, 25)
+
+# Generate the bifurcation diagram data
 I_star_matrix, N_star_matrix = generate_I_star_matrix(pars, ('beta', beta_values), ('epsilon', epsilon_values))
+
+# Make the bifurcation diagram figure
 fig, ax = plt.subplots(1, 1, figsize=(5, 4), dpi=100)
 
 X, Y = np.meshgrid(beta_values, epsilon_values, indexing='ij')
@@ -136,7 +153,6 @@ Z = I_star_matrix / N_star_matrix
 
 beta_at_R0_equals_1 = pars['mu'] / pars['Lambda'] * (pars['gamma'] + pars['mu'] + pars['alpha_i'])
 
-#cf_levels = np.linspace(0, 1, 100)
 cf_levels = np.linspace(0, 1, 100)
 cf = ax.contourf(X, Y, Z, levels=cf_levels, cmap='magma', zorder=-1)
 ax.plot(beta_values[1:], R_epsilon_curve_beta(beta_values[1:], pars), color='red', label=r'$\mathcal{R}_\epsilon = 1$')
@@ -173,10 +189,16 @@ fig.savefig(filename, dpi=300, bbox_inches='tight')
 '''
 β-ε bifurcation diagram with α_s = 0.0002 without R_epsilon curve
 '''
+
+# Setup parameter values for the bifurcation diagram
 pars['alpha_s'] = 0.0002
 beta_values = np.linspace(0, beta_max, 25)
 epsilon_values = np.linspace(0, 1, 25)
+
+# Generate the bifurcation diagram data
 I_star_matrix, N_star_matrix = generate_I_star_matrix(pars, ('beta', beta_values), ('epsilon', epsilon_values))
+
+# Make the bifurcation diagram figure
 fig, ax = plt.subplots(1, 1, figsize=(5, 4), dpi=100)
 
 X, Y = np.meshgrid(beta_values, epsilon_values, indexing='ij')
@@ -184,7 +206,6 @@ Z = I_star_matrix / N_star_matrix
 
 beta_at_R0_equals_1 = pars['mu'] / pars['Lambda'] * (pars['gamma'] + pars['mu'] + pars['alpha_i'])
 
-#cf_levels = np.linspace(0, 1, 100)
 cf_levels = np.linspace(0, 1, 100)
 cf = ax.contourf(X, Y, Z, levels=cf_levels, cmap='magma', zorder=-1)
 #ax.plot(beta_values[1:], R_epsilon_curve_beta(beta_values[1:], pars), color='red', label=r'$\mathcal{R}_\epsilon = 1$')

@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import solve_ivp
 from scipy.optimize import root
 
 FONT_SIZE = 16
@@ -10,6 +9,7 @@ plt.rcParams.update({'font.size': FONT_SIZE})
 plt.rcParams['font.family'] = 'Times New Roman'
 plt.rcParams['mathtext.fontset'] = 'dejavuserif'
 
+# Standard incidence model equations
 def si_model(t, x, pars):
     s, i = x
     b, beta, gamma, epsilon, alpha_i, alpha_s = pars.values()
@@ -19,10 +19,12 @@ def si_model(t, x, pars):
 
     return np.array([ds_dt, di_dt])
 
+# Returns R0
 def get_R0(pars):
     b, beta, gamma, epsilon, alpha_i, alpha_s = pars.values()
     return beta / (gamma + b + alpha_i)
 
+# Generate a matrix of I* values for a grid of parameter values
 def generate_I_star_matrix(pars, par1_info, par2_info):
     par1_name, par1_values = par1_info
     par2_name, par2_values = par2_info
@@ -51,6 +53,7 @@ def generate_I_star_matrix(pars, par1_info, par2_info):
 
     return i_star_matrix
 
+# Default parameter values
 pars = {
     'b': 0.0004,
     'beta': 5,                 # Transmission rate
@@ -65,11 +68,17 @@ pars = {
 '''
 β-ε bifurcation diagram with α_s = 0.0008
 '''
+
+# Setup parameter values for the bifurcation diagram
 R0_max = 10
 beta_max = R0_max * (pars['gamma'] + pars['b'] + pars['alpha_i'])
 beta_values = np.linspace(0, beta_max, 25)
 epsilon_values = np.linspace(0, 1, 25)
+
+# Generate the bifurcation diagram data
 I_star_matrix = generate_I_star_matrix(pars, ('beta', beta_values), ('epsilon', epsilon_values))
+
+# Make the bifurcation diagram figure
 fig, ax = plt.subplots(1, 1, figsize=(5, 4), dpi=100)
 
 X, Y = np.meshgrid(beta_values, epsilon_values, indexing='ij')
@@ -77,7 +86,6 @@ Z = I_star_matrix
 
 beta_at_R0_equals_1 = pars['gamma'] + pars['b'] + pars['alpha_i']
 
-#cf_levels = np.linspace(0, 1, 100)
 cf_levels = np.linspace(0, 1, 100)
 cf = ax.contourf(X, Y, Z, levels=cf_levels, cmap='magma', zorder=-1)
 ax.plot([beta_at_R0_equals_1, beta_at_R0_equals_1], [0, 1], color='blue', label=r'$\mathcal{R}_0 = 1$')
